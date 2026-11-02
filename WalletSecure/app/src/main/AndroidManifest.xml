@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+        Demo educativa (Kavacon) — contraparte REMEDIADA de WalletVulnerable.
+        Misma UI/flujo, pero con las mitigaciones:
+          - EncryptedSharedPreferences (androidx.security.crypto)
+          - PAN enmascarado (solo últimos 4 dígitos), CVV nunca mostrado
+          - Campo sensible excluido del árbol de accesibilidad (importantForAccessibility)
+          - FLAG_SECURE (bloquea capturas de pantalla / grabación)
+          - Sin logging de datos sensibles
+        App ficticia, sin permiso INTERNET, aislada de cualquier producto real.
+    -->
+
+    <application
+        android:allowBackup="false"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".AddCardActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+
+    </application>
+
+</manifest>

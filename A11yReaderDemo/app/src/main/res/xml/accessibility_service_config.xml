@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Restringe el servicio EXCLUSIVAMENTE a los paquetes de la demo. Android ni
+    siquiera le entrega eventos de accesibilidad de ninguna otra app instalada.
+    Esto es lo que hace que la app "funcione solo con esta demo" y no con
+    cualquier otra app del dispositivo.
+-->
+<accessibility-service xmlns:android="http://schemas.android.com/apk/res/android"
+    android:accessibilityEventTypes="typeWindowContentChanged|typeWindowStateChanged"
+    android:accessibilityFeedbackType="feedbackGeneric"
+    android:accessibilityFlags="flagReportViewIds"
+    android:canRetrieveWindowContent="true"
+    android:notificationTimeout="100"
+    android:packageNames="com.kavacon.walletvulnerable,com.kavacon.walletsecure" />
